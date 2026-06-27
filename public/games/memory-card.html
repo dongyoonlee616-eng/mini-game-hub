@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 뒤집기 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/memory-card.css">
+</head>
+<body>
+    <div class="site-shell game-page">
+        <header class="game-header">
+            <a class="back-link" href="../index.html">← 메뉴</a>
+            <div>
+                <p class="eyebrow">MGH GAME 04</p>
+                <h1>카드 뒤집기</h1>
+            </div>
+        </header>
+
+        <main>
+            <section class="game-panel">
+                <p class="game-rule">
+                    카드를 두 장씩 뒤집어서 같은 그림을 맞추세요. 모든 짝을 맞추면 클리어입니다.
+                </p>
+
+                <section id="memorySetup" class="memory-setup">
+                    <strong>게임판 크기 선택</strong>
+                    <p>5x5는 칸 수가 홀수라 보너스 카드 1장이 포함됩니다.</p>
+
+                    <div class="memory-size-list">
+                        <button class="memory-size-btn" type="button" data-size="4">
+                            <span>4 × 4</span>
+                            <small>8쌍</small>
+                        </button>
+
+                        <button class="memory-size-btn" type="button" data-size="5">
+                            <span>5 × 5</span>
+                            <small>12쌍 + 보너스</small>
+                        </button>
+
+                        <button class="memory-size-btn" type="button" data-size="6">
+                            <span>6 × 6</span>
+                            <small>18쌍</small>
+                        </button>
+                    </div>
+                </section>
+
+                <section id="memoryGame" class="memory-game is-hidden">
+                    <div class="memory-status">
+                        <div>
+                            <span>크기</span>
+                            <strong id="boardSize">-</strong>
+                        </div>
+                        <div>
+                            <span>시도</span>
+                            <strong id="tryCount">0</strong>
+                        </div>
+                        <div>
+                            <span>맞춘 짝</span>
+                            <strong id="matchCount">0 / 0</strong>
+                        </div>
+                        <div>
+                            <span>시간</span>
+                            <strong id="playTime">0초</strong>
+                        </div>
+                    </div>
+
+                    <div id="memoryBoard" class="memory-board" aria-label="카드 뒤집기 게임판"></div>
+
+                    <div class="game-actions">
+                        <button id="restartMemory" class="primary-btn" type="button">다시 시작</button>
+                        <button id="changeSizeMemory" class="ghost-btn" type="button">크기 변경</button>
+                    </div>
+
+                    <div class="memory-result">
+                        <strong id="memoryMessage">카드 두 장을 선택하세요.</strong>
+                        <p>적은 시도와 빠른 시간으로 모든 카드를 맞춰보세요.</p>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/memory-card.js"></script>
+</body>
+</html>

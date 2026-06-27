@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양면 탁구 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/two-player-pong.css">
+</head>
+<body>
+    <div class="pong-page">
+        <a class="pong-exit" href="../index.html">EXIT</a>
+
+        <div class="pong-score top-score">
+            <span>TOP</span>
+            <strong id="topScore">0</strong>
+        </div>
+
+        <main class="pong-wrap">
+            <canvas id="pongCanvas" width="360" height="640"></canvas>
+
+            <div id="pongMessage" class="pong-message">
+                <strong>양면 탁구</strong>
+                <p>START를 누르면 게임이 시작됩니다.</p>
+            </div>
+        </main>
+
+        <div class="pong-score bottom-score">
+            <span>BOTTOM</span>
+            <strong id="bottomScore">0</strong>
+        </div>
+
+        <div class="pong-controls">
+            <button id="startPong" type="button">START</button>
+            <button id="resetPong" type="button">RESET</button>
+        </div>
+
+        <div class="pong-speed" aria-label="공 속도 선택">
+            <span>공 속도</span>
+
+            <div class="pong-speed-buttons">
+                <button class="speed-btn active" type="button" data-speed="slow">느림</button>
+                <button class="speed-btn" type="button" data-speed="fast">빠름</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/two-player-pong.js"></script>
+</body>
+</html>

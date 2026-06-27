@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MGH | Mini Game Hub</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="site-shell">
+        <header class="site-header">
+            <p class="eyebrow">MOBILE MINI GAME SITE</p>
+            <h1>MGH</h1>
+            <div class="title-row">
+                <p class="subtitle">Mini Game Hub</p>
+                <span class="version-badge header-version">v0.1.0</span>
+            </div>
+            <p class="header-desc">
+                모바일 기기 하나로 여러 명이 함께 즐기는 미니게임 모음 사이트
+            </p>
+        </header>
+
+        <main>
+            <section class="notice-card">
+                <strong>플레이 방식</strong>
+                <p>한 기기를 돌아가며 사용하거나, 한 화면을 같이 보면서 간단한 게임을 즐길 수 있습니다.<br>싱글 플레이와 멀티 플레이를 모두 즐길 수 있습니다.</p>
+            </section>
+
+            <section class="play-filter" aria-label="게임 플레이 방식 선택">
+                <button class="filter-btn active" data-mode="single">싱글 플레이</button>
+                <button class="filter-btn" data-mode="multi">멀티 플레이</button>
+            </section>
+
+            <section class="section-head">
+                <div>
+                    <p class="section-kicker">GAME LIST</p>
+                    <h2>게임 선택</h2>
+                </div>
+            </section>
+
+            <section id="gameGrid" class="game-grid" aria-label="미니게임 목록"></section>
+
+        </main>
+
+        <footer class="site-footer">
+            <p>MGH는 DB 없이 브라우저에서 실행되는 모바일 중심 미니게임 프로젝트입니다.</p>
+        </footer>
+    </div>
+
+    <script src="./js/games-data.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

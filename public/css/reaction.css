@@ -1,0 +1,42 @@
+.reaction-box {
+    min-height: 260px;
+    display: grid;
+    place-items: center;
+    gap: 10px;
+    padding: 24px;
+    border: 2px solid var(--line);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    user-select: none;
+}
+
+.reaction-box strong {
+    display: block;
+    font-size: 2rem;
+    letter-spacing: -0.06em;
+}
+
+.reaction-box span {
+    color: var(--muted);
+}
+
+.reaction-box.idle {
+    background: var(--surface-strong);
+}
+
+.reaction-box.waiting {
+    background: #ffffff;
+}
+
+.reaction-box.ready {
+    background: var(--point);
+    color: #ffffff;
+}
+
+.reaction-box.ready span {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.reaction-box.fail {
+    background: #fff0f0;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응속도 테스트 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reaction.css">
+</head>
+<body>
+    <div class="site-shell game-page">
+        <header class="game-header">
+            <a class="back-link" href="../index.html">← 메뉴</a>
+            <div>
+                <p class="eyebrow">MGH GAME 01</p>
+                <h1>반응속도 테스트</h1>
+            </div>
+        </header>
+
+        <main>
+            <section class="game-panel">
+                <p class="game-rule">검정 화면으로 바뀌는 순간 최대한 빠르게 터치하세요.</p>
+
+                <div id="reactionBox" class="reaction-box idle" role="button" tabindex="0">
+                    <strong id="reactionTitle">준비 완료</strong>
+                    <span id="reactionText">시작 버튼을 누르세요.</span>
+                </div>
+
+                <div class="game-actions">
+                    <button id="startReaction" class="primary-btn">시작</button>
+                    <button id="resetReaction" class="ghost-btn">기록 초기화</button>
+                </div>
+
+                <div class="score-board two-cols">
+                    <div>
+                        <span>이번 기록</span>
+                        <strong id="currentReaction">-</strong>
+                    </div>
+                    <div>
+                        <span>최고 기록</span>
+                        <strong id="bestReaction">-</strong>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/reaction.js"></script>
+</body>
+</html>

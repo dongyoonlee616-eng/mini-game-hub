@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 야구 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/number-baseball.css">
+</head>
+<body>
+    <div class="site-shell game-page">
+        <header class="game-header">
+            <a class="back-link" href="../index.html">← 메뉴</a>
+            <div>
+                <p class="eyebrow">MGH GAME 03</p>
+                <h1>숫자 야구</h1>
+            </div>
+        </header>
+
+        <main>
+            <section class="game-panel">
+                <p class="game-rule">서로 다른 숫자로 이루어진 3자리 정답을 맞추세요.</p>
+
+                <form id="baseballForm" class="number-form">
+                    <input id="guessInput" type="number" inputmode="numeric" placeholder="예: 123" autocomplete="off">
+                    <button class="primary-btn" type="submit">확인</button>
+                </form>
+
+                <div class="game-actions">
+                    <button id="newBaseballGame" class="ghost-btn" type="button">새 게임</button>
+                </div>
+
+                <div class="score-board two-cols">
+                    <div>
+                        <span>시도 횟수</span>
+                        <strong id="attemptCount">0</strong>
+                    </div>
+                    <div>
+                        <span>상태</span>
+                        <strong id="baseballStatus">진행중</strong>
+                    </div>
+                </div>
+
+                <ul id="historyList" class="history-list" aria-label="숫자 야구 기록"></ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/number-baseball.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+.timer-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding: 14px 16px;
+    border: 2px solid var(--soft-line);
+    border-radius: var(--radius-md);
+    background: var(--surface-strong);
+}
+
+.timer-line span {
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.timer-line strong {
+    font-size: 1.25rem;
+}
+
+.tap-zone {
+    width: 100%;
+    min-height: 270px;
+    border: 2px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--point);
+    color: #ffffff;
+    font-size: clamp(2.6rem, 16vw, 5rem);
+    font-weight: 950;
+    letter-spacing: -0.08em;
+}
+
+.tap-zone:active {
+    transform: scale(0.98);
+}
+
+.tap-zone.finished {
+    background: var(--surface-strong);
+    color: var(--text);
+}
+
+.tap-zone:disabled {
+    cursor: default;
+}
