@@ -10,6 +10,7 @@ const topScoreText = document.querySelector('#topScore');
 const bottomScoreText = document.querySelector('#bottomScore');
 
 const WIN_SCORE = 5;
+const ROUND_DELAY = 2;
 
 const SPEED_OPTIONS = {
     slow: {
@@ -26,7 +27,9 @@ let currentSpeed = 'slow';
 
 const game = {
     isPlaying: false,
+    isCountingDown: false,
     animationId: null,
+    countdownId: null,
     topScore: 0,
     bottomScore: 0
 };
@@ -97,24 +100,63 @@ function resetPositions() {
 
 function resetGame() {
     cancelAnimationFrame(game.animationId);
+    clearInterval(game.countdownId);
 
     game.isPlaying = false;
+    game.isCountingDown = false;
     game.topScore = 0;
     game.bottomScore = 0;
+
+    startButton.disabled = false;
 
     updateScore();
     resetPositions();
     draw();
 
-    showMessage('양면 탁구', '속도를 고르고 START를 누르면 게임이 시작됩니다.');
+    showMessage('양면 탁구', '속도를 고르고 START를 누르면 2초 뒤 게임이 시작됩니다.');
+}
+
+function startRoundCountdown(direction = 1) {
+    cancelAnimationFrame(game.animationId);
+    clearInterval(game.countdownId);
+
+    game.isPlaying = false;
+    game.isCountingDown = true;
+
+    startButton.disabled = true;
+
+    resetBall(direction);
+    draw();
+
+    let count = ROUND_DELAY;
+
+    showMessage(String(count), '잠시 후 라운드가 시작됩니다.');
+
+    game.countdownId = setInterval(() => {
+        count -= 1;
+
+        if (count > 0) {
+            showMessage(String(count), '잠시 후 라운드가 시작됩니다.');
+            return;
+        }
+
+        clearInterval(game.countdownId);
+
+        game.isCountingDown = false;
+        game.isPlaying = true;
+
+        startButton.disabled = false;
+
+        hideMessage();
+        loop();
+    }, 1000);
 }
 
 function startGame() {
-    if (game.isPlaying) return;
+    if (game.isPlaying || game.isCountingDown) return;
 
-    game.isPlaying = true;
-    hideMessage();
-    loop();
+    const direction = Math.random() > 0.5 ? 1 : -1;
+    startRoundCountdown(direction);
 }
 
 function drawCourt() {
@@ -246,12 +288,19 @@ function bottomPoint() {
 function checkWinner(player, direction) {
     if (game.topScore >= WIN_SCORE || game.bottomScore >= WIN_SCORE) {
         game.isPlaying = false;
+        game.isCountingDown = false;
+
         cancelAnimationFrame(game.animationId);
+        clearInterval(game.countdownId);
+
+        startButton.disabled = false;
+
         showMessage(`${player} 승리!`, 'RESET을 누르거나 START로 다시 시작하세요.');
         return;
     }
 
-    resetBall(direction);
+    showMessage(`${player} 득점!`, '2초 뒤 다음 라운드가 시작됩니다.');
+    startRoundCountdown(direction);
 }
 
 function loop() {
@@ -259,6 +308,8 @@ function loop() {
 
     moveBall();
     draw();
+
+    if (!game.isPlaying) return;
 
     game.animationId = requestAnimationFrame(loop);
 }

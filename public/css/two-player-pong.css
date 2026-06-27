@@ -152,6 +152,12 @@ body {
     transform: scale(0.97);
 }
 
+.pong-controls button:disabled {
+    opacity: 0.45;
+    cursor: default;
+    transform: none;
+}
+
 .pong-speed {
     position: static;
     z-index: 4;
