@@ -141,3 +141,7 @@ This project is licensed under the MIT License.
 
 누구나 자유롭게 사용, 수정, 배포할 수 있습니다.  
 자세한 내용은 `LICENSE` 파일을 참고하세요.
+
+## 패치노트
+
+해당 사이트의 패치노트는 [CHANGELOG.md](CHANGELOG.md)를 참고해주세요.
