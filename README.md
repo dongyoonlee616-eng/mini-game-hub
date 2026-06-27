@@ -1,88 +1,143 @@
-# Mini Game Hub (MGH)
+# Mini Game Hub
 
-Mini Game Hub, 줄여서 **MGH**는 모바일 기기 하나로 여러 명이 함께 즐길 수 있는 웹 미니게임 모음 사이트입니다.  
-플래시 게임 사이트처럼 메인 메뉴에서 게임을 고르고 바로 플레이할 수 있는 구조를 목표로 합니다.
+**Mini Game Hub(MGH)**는 모바일 기기 하나로 여러 명이 함께 즐길 수 있는 미니게임 모음 웹사이트입니다.
 
-## 프로젝트 컨셉
+플래시 게임 사이트처럼 여러 게임을 한곳에 모아두는 것을 목표로 제작했으며, 싱글 플레이 게임과 멀티 플레이 게임을 나누어 선택할 수 있도록 구성했습니다.
 
-- 밝은 흰색 계열 배경
-- 검정 계열 포인트 컬러
-- 모바일 중심 UI
-- DB 없이 브라우저에서 바로 실행
-- 게임별 HTML 파일 분리
-
-## 현재 버전
+## 배포 링크
 
 ```txt
-v0.1.0 Starter
-- 메인 메뉴 페이지
-- 반응속도 테스트
-- 클릭 속도 테스트
-- 숫자 야구
-- 공통 CSS / JS 구조
+https://dongyoonlee616-eng.github.io/mini-game-hub/
 ```
 
-## 폴더 구조
+## 프로젝트 소개
+
+MGH는 별도의 서버나 데이터베이스 없이 브라우저에서 실행되는 정적 웹 프로젝트입니다.
+
+HTML, CSS, JavaScript만 사용하여 제작했으며, 모바일 화면에서 플레이하기 좋도록 전체 UI를 모바일 중심으로 설계했습니다.
+
+사용자는 설치나 회원가입 없이 웹사이트에 접속해 바로 미니게임을 플레이할 수 있습니다.
+
+## 주요 기능
+
+- 모바일 중심 미니게임 허브
+- 싱글 플레이 / 멀티 플레이 게임 구분
+- 게임 카드 자동 생성 구조
+- 게임별 HTML, CSS, JS 분리
+- 밝은 배경과 검정 포인트 컬러 기반 UI
+- GitHub Pages 정적 배포
+- DB 없이 브라우저에서 실행
+- 한 기기를 여러 명이 함께 사용하는 로컬 멀티 플레이 방식 지원
+
+## 포함된 게임
+
+### 싱글 플레이
+
+| 게임 | 설명 |
+|---|---|
+| 반응속도 테스트 | 화면이 바뀌는 순간 빠르게 터치해 반응속도를 측정하는 게임 |
+| 카드 뒤집기 | 카드 위치를 기억해 같은 그림의 카드를 맞추는 기억력 게임 |
+
+### 멀티 플레이
+
+| 게임 | 설명 |
+|---|---|
+| 클릭 속도 테스트 | 제한 시간 동안 최대한 많이 터치해 기록을 비교하는 게임 |
+| 숫자 야구 | 3자리 숫자를 추리해 Strike와 Ball 힌트로 정답을 맞추는 게임 |
+| 양면 탁구 | 한 기기를 사이에 두고 위아래에서 패들을 움직이며 공을 주고받는 2인용 게임 |
+| 턴제 카드 뒤집기 | 두 명이 번갈아 카드를 뒤집고 같은 그림을 맞춰 점수를 얻는 턴제 게임 |
+
+## 기술 스택
+
+```txt
+HTML
+CSS
+JavaScript
+GitHub Pages
+```
+
+## 프로젝트 구조
 
 ```txt
 mini-game-hub/
-│
 ├─ README.md
-│
-├─ public/
-│  ├─ index.html
-│  │
-│  ├─ reaction/
-│  │  └─ reaction.html
-│  │
-│  ├─ clicker/
-│  │  └─ clicker.html
-│  │
-│  ├─ number-baseball/
-│  │  └─ number-baseball.html
-│  │
-│  ├─ css/
-│  │  └─ style.css
-│  │
-│  ├─ js/
-│  │  ├─ main.js
-│  │  ├─ reaction.js
-│  │  ├─ clicker.js
-│  │  └─ number-baseball.js
-│  │
-│  └─ assets/
-│     ├─ images/
-│     └─ icons/
+├─ CHANGELOG.md
+├─ .github/
+│  └─ workflows/
+│     └─ pages.yml
+└─ public/
+   ├─ index.html
+   ├─ games/
+   │  ├─ reaction.html
+   │  ├─ clicker.html
+   │  ├─ number-baseball.html
+   │  ├─ memory-card.html
+   │  ├─ two-player-pong.html
+   │  └─ memory-card-multi.html
+   ├─ css/
+   │  ├─ style.css
+   │  ├─ reaction.css
+   │  ├─ clicker.css
+   │  ├─ number-baseball.css
+   │  ├─ memory-card.css
+   │  ├─ two-player-pong.css
+   │  └─ memory-card-multi.css
+   ├─ js/
+   │  ├─ games-data.js
+   │  ├─ main.js
+   │  ├─ reaction.js
+   │  ├─ clicker.js
+   │  ├─ number-baseball.js
+   │  ├─ memory-card.js
+   │  ├─ two-player-pong.js
+   │  └─ memory-card-multi.js
+   └─ assets/
+      ├─ images/
+      └─ icons/
 ```
 
 ## 실행 방법
 
-DB나 서버 없이 정적 파일로 실행할 수 있습니다.
+### 1. 저장소 클론
 
-1. 압축 해제
-2. `public/index.html` 실행
-3. 모바일 화면 기준으로 확인
+```bash
+git clone https://dongyoonlee616-eng.github.io/mini-game-hub/
+```
 
-VS Code를 사용한다면 Live Server 확장 프로그램으로 `public/index.html`을 열면 편합니다.
+### 2. 프로젝트 폴더 이동
 
-## 기술 스택
+```bash
+cd mini-game-hub
+```
 
-- HTML
-- CSS
-- JavaScript
-- localStorage
-- Responsive Web Design
+### 3. 실행
 
-## 다음 작업 후보
+`public/index.html` 파일을 브라우저로 열면 실행할 수 있습니다.
+
+VS Code를 사용하는 경우 Live Server 확장 프로그램으로 실행하는 것을 권장합니다.
+
+## 개발 방향
+
+MGH는 게임을 계속 추가하면서 확장하는 프로젝트입니다.
+
+새 게임을 추가할 때는 다음 구조를 기준으로 추가합니다.
 
 ```txt
-[v0.1.1]
-- 게임 UI 세부 조정
-- 모바일 터치감 개선
-- 게임별 안내 화면 강화
-
-[v0.2.0]
-- 카드 뒤집기 게임 추가
-- 랜덤 벌칙 뽑기 추가
-- 진실 혹은 도전 게임 추가
+HTML: public/games/게임이름.html
+CSS: public/css/게임이름.css
+JS: public/js/게임이름.js
+게임 데이터: public/js/games-data.js
 ```
+
+메인 메뉴의 게임 카드는 `games-data.js`에 등록된 데이터를 바탕으로 자동 생성됩니다.
+
+## 버전
+
+현재 버전: **v1.0.0**
+
+## License
+
+This project is licensed under the MIT License.
+
+누구나 자유롭게 사용, 수정, 배포할 수 있습니다.  
+자세한 내용은 `LICENSE` 파일을 참고하세요.
