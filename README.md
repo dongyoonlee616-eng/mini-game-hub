@@ -62,7 +62,7 @@ mini-game-hub/
 ├─ .github/
 │  └─ workflows/
 │     ├─ pages.yml
-|     └─ discord.yml
+│     └─ discord.yml
 └─ public/
    ├─ index.html
    ├─ games/
