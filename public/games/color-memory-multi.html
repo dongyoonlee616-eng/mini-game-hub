@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>색깔 기억 대결 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/color-memory-multi.css">
+</head>
+<body>
+    <div class="site-shell game-page">
+        <header class="game-header">
+            <a class="back-link" href="../index.html">← 메뉴</a>
+            <div>
+                <p class="eyebrow">MGH GAME 08</p>
+                <h1>색깔 기억 대결</h1>
+            </div>
+        </header>
+
+        <main>
+            <section class="game-panel">
+                
+                <div class="turn-board">
+                    <div id="playerOneBox" class="player-box active">
+                        <span>PLAYER 1</span>
+                        <strong id="playerOneScore">0</strong>
+                    </div>
+
+                    <div class="turn-info">
+                        <span>현재 턴</span>
+                        <strong id="currentTurn">P1</strong>
+                    </div>
+
+                    <div id="playerTwoBox" class="player-box">
+                        <span>PLAYER 2</span>
+                        <strong id="playerTwoScore">0</strong>
+                    </div>
+                </div>
+
+                <div class="score-board three-cols">
+                    <div>
+                        <span>라운드</span>
+                        <strong id="roundText">0</strong>
+                    </div>
+                    <div>
+                        <span>입력</span>
+                        <strong id="inputText">0 / 0</strong>
+                    </div>
+                    <div>
+                        <span>목표 점수</span>
+                        <strong id="targetScoreText">5</strong>
+                    </div>
+                </div>
+
+                <div class="color-memory-message">
+                    <strong id="messageTitle">색깔 기억 대결</strong>
+                    <p id="messageText">START를 누르면 PLAYER 1부터 시작합니다.</p>
+                </div>
+
+                <div id="colorBoard" class="color-board" aria-label="색깔 버튼">
+                    <button class="color-btn red" type="button" data-color="red" aria-label="빨강"></button>
+                    <button class="color-btn blue" type="button" data-color="blue" aria-label="파랑"></button>
+                    <button class="color-btn yellow" type="button" data-color="yellow" aria-label="노랑"></button>
+                    <button class="color-btn green" type="button" data-color="green" aria-label="초록"></button>
+                </div>
+
+                <div class="game-actions">
+                    <button id="startColorMemoryMulti" class="primary-btn" type="button">START</button>
+                    <button id="resetColorMemoryMulti" class="ghost-btn" type="button">RESET</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/color-memory-multi.js"></script>
+</body>
+</html>

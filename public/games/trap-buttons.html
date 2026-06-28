@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼 함정 대결 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/trap-buttons.css">
+</head>
+<body>
+    <div class="site-shell game-page">
+        <header class="game-header">
+            <a class="back-link" href="../index.html">← 메뉴</a>
+            <div>
+                <p class="eyebrow">MGH MULTI GAME 05</p>
+                <h1>버튼 함정 대결</h1>
+            </div>
+        </header>
+
+        <main>
+            <section class="game-panel">
+                <div class="trap-score-board">
+                    <div id="playerOneBox" class="trap-player-box active">
+                        <span>PLAYER 1</span>
+                        <strong id="playerOneScore">0</strong>
+                    </div>
+
+                    <div class="trap-round-box">
+                        <span>ROUND</span>
+                        <strong id="roundText">1</strong>
+                    </div>
+
+                    <div id="playerTwoBox" class="trap-player-box">
+                        <span>PLAYER 2</span>
+                        <strong id="playerTwoScore">0</strong>
+                    </div>
+                </div>
+
+                <div class="trap-info-board">
+                    <div>
+                        <span>현재 턴</span>
+                        <strong id="currentTurnText">P1</strong>
+                    </div>
+                    <div>
+                        <span>함정 개수</span>
+                        <strong id="trapCountText">1</strong>
+                    </div>
+                    <div>
+                        <span>목표 점수</span>
+                        <strong id="targetScoreText">5</strong>
+                    </div>
+                </div>
+
+                <section class="trap-message-box">
+                    <strong id="messageTitle">버튼 함정 대결</strong>
+                    <p id="messageText">START를 누르면 PLAYER 1부터 시작합니다.</p>
+                </section>
+
+                <div id="trapButtonBoard" class="trap-button-board" aria-label="함정 버튼 게임판"></div>
+
+                <div class="game-actions">
+                    <button id="startTrapGame" class="primary-btn" type="button">START</button>
+                    <button id="resetTrapGame" class="ghost-btn" type="button">RESET</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/trap-buttons.js"></script>
+</body>
+</html>

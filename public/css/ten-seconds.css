@@ -1,0 +1,115 @@
+.time-display-box {
+    margin: 20px 0;
+    padding: 28px 18px;
+    border: 3px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.time-display-box span {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+.time-display-box strong {
+    display: block;
+    font-size: clamp(3rem, 18vw, 5.2rem);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -0.08em;
+}
+
+.time-display-box p {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-weight: 700;
+    line-height: 1.5;
+    word-break: keep-all;
+}
+
+.timer-main {
+    min-height: clamp(3rem, 18vw, 5.2rem);
+    display: grid;
+    place-items: center;
+}
+
+.time-display-box.is-hidden-time #timerText {
+    display: none;
+}
+
+.timer-stop-btn {
+    display: none;
+    min-width: min(70vw, 260px);
+    min-height: 82px;
+    border: 4px solid var(--line);
+    border-radius: 999px;
+    background: var(--point);
+    color: #ffffff;
+    font-size: clamp(2rem, 12vw, 3.8rem);
+    font-weight: 950;
+    letter-spacing: -0.06em;
+    box-shadow: 0 8px 0 #111111;
+}
+
+.timer-stop-btn.is-visible {
+    display: grid;
+    place-items: center;
+}
+
+.timer-stop-btn:active {
+    transform: translateY(6px) scale(0.97);
+    box-shadow: 0 2px 0 #111111;
+}
+
+.timer-stop-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+    transform: none;
+}
+
+.time-display-box.is-running {
+    background: var(--surface-strong);
+}
+
+.time-display-box.is-finished {
+    background: #ffffff;
+}
+
+.time-result-box {
+    margin: 18px 0;
+    padding: 18px;
+    border: 2px solid var(--soft-line);
+    border-radius: var(--radius-lg);
+    background: var(--surface-strong);
+    text-align: center;
+}
+
+.time-result-box strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    font-weight: 950;
+}
+
+.time-result-box p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+    word-break: keep-all;
+}
+
+.full-btn {
+    width: 100%;
+}
+
+.primary-btn:disabled,
+.ghost-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+    transform: none;
+}

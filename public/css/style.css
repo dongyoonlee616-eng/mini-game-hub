@@ -486,3 +486,173 @@ button {
         grid-template-columns: 1fr;
     }
 }
+
+.game-guide {
+    margin-top: 22px;
+    padding: 22px 20px;
+    border: 2px solid var(--soft-line);
+    border-radius: var(--radius-lg);
+    background: var(--surface-strong);
+}
+
+.game-guide h2 {
+    margin: 0 0 14px;
+    font-size: 1.25rem;
+    font-weight: 950;
+    letter-spacing: -0.05em;
+}
+
+.game-guide ol,
+.game-guide ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.game-guide li {
+    margin-bottom: 10px;
+    color: var(--muted);
+    line-height: 1.55;
+    word-break: keep-all;
+}
+
+.game-guide li:last-child {
+    margin-bottom: 0;
+}
+
+.game-guide strong {
+    color: var(--text);
+}
+
+.game-card {
+    display: block;
+}
+
+.card-bottom {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 10px;
+}
+
+.guide-open-btn,
+.play-link {
+    min-height: 42px;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.86rem;
+    font-weight: 950;
+    text-decoration: none;
+}
+
+.guide-open-btn {
+    padding: 0 12px;
+    background: var(--surface);
+    color: var(--text);
+}
+
+.play-link {
+    min-width: 74px;
+    padding: 0 16px;
+    background: var(--point);
+    color: #ffffff;
+}
+
+.guide-open-btn:active,
+.play-link:active {
+    transform: translateY(2px);
+}
+
+.guide-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    padding: 24px;
+}
+
+.guide-modal.is-open {
+    display: grid;
+    place-items: center;
+}
+
+.guide-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.42);
+}
+
+.guide-modal-panel {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 420px);
+    max-height: min(78vh, 640px);
+    overflow-y: auto;
+    padding: 26px 22px 22px;
+    border: 3px solid var(--line);
+    border-radius: 28px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.guide-modal-close {
+    position: absolute;
+    right: 16px;
+    top: 14px;
+    width: 38px;
+    height: 38px;
+    border: 2px solid var(--line);
+    border-radius: 50%;
+    background: var(--surface-strong);
+    color: var(--text);
+    font-size: 1.4rem;
+    font-weight: 950;
+    line-height: 1;
+}
+
+.guide-modal-panel h2 {
+    margin: 4px 0 16px;
+    font-size: 1.6rem;
+    font-weight: 950;
+    letter-spacing: -0.06em;
+}
+
+.guide-modal-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.guide-modal-list li {
+    margin-bottom: 12px;
+    color: var(--muted);
+    line-height: 1.55;
+    word-break: keep-all;
+}
+
+.guide-modal-list li:last-child {
+    margin-bottom: 0;
+}
+
+.guide-confirm-btn {
+    width: 100%;
+    margin-top: 22px;
+}
+
+body.guide-open {
+    overflow: hidden;
+}
+
+@media (max-width: 360px) {
+    .card-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .play-link {
+        width: 100%;
+    }
+
+    .guide-modal {
+        padding: 18px;
+    }
+}

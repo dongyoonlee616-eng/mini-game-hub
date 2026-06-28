@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10초 맞추기 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/ten-seconds.css">
+</head>
+<body>
+    <div class="site-shell game-page">
+        <header class="game-header">
+            <a class="back-link" href="../index.html">← 메뉴</a>
+            <div>
+                <p class="eyebrow">MGH GAME 09</p>
+                <h1>10초 맞추기</h1>
+            </div>
+        </header>
+
+        <main>
+            <section class="game-panel">
+
+                <div class="score-board three-cols">
+                    <div>
+                        <span>목표 시간</span>
+                        <strong>10.00초</strong>
+                    </div>
+                    <div>
+                        <span>현재 기록</span>
+                        <strong id="currentRecord">-</strong>
+                    </div>
+                    <div>
+                        <span>최고 기록</span>
+                        <strong id="bestRecord">-</strong>
+                    </div>
+                </div>
+
+                <section class="time-display-box">
+                    <span id="timerLabel">대기 중</span>
+
+                    <div class="timer-main">
+                        <strong id="timerText">10.00</strong>
+                        <button id="stopTenSeconds" class="timer-stop-btn" type="button" disabled>STOP</button>
+                    </div>
+
+                    <p id="timerHint">START를 눌러 도전하세요.</p>
+                </section>
+
+                <section class="time-result-box">
+                    <strong id="resultTitle">10초 감각 테스트</strong>
+                    <p id="resultText">10초에 가까울수록 좋은 기록입니다.</p>
+                </section>
+
+                <div class="game-actions">
+                    <button id="startTenSeconds" class="primary-btn full-btn" type="button">START</button>
+                </div>
+
+                <div class="game-actions">
+                    <button id="resetTenSeconds" class="ghost-btn full-btn" type="button">기록 초기화</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/ten-seconds.js"></script>
+</body>
+</html>

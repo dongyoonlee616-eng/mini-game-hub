@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>순발력 대결 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reaction-duel.css">
+</head>
+<body>
+    <div class="site-shell game-page">
+        <header class="game-header">
+            <a class="back-link" href="../index.html">← 메뉴</a>
+            <div>
+                <p class="eyebrow">MGH MULTI GAME 04</p>
+                <h1>순발력 대결</h1>
+            </div>
+        </header>
+
+        <main>
+            <section class="game-panel">
+                <div class="duel-score-board">
+                    <div id="playerOneBox" class="duel-player-box">
+                        <span>PLAYER 1</span>
+                        <strong id="playerOneScore">0</strong>
+                    </div>
+
+                    <div class="duel-round-box">
+                        <span>ROUND</span>
+                        <strong id="roundText">0</strong>
+                    </div>
+
+                    <div id="playerTwoBox" class="duel-player-box">
+                        <span>PLAYER 2</span>
+                        <strong id="playerTwoScore">0</strong>
+                    </div>
+                </div>
+
+                <section id="signalBox" class="signal-box">
+                    <span id="signalLabel">대기 중</span>
+                    <strong id="signalText">READY?</strong>
+                    <p id="signalHint">START를 누르면 대결이 시작됩니다.</p>
+                </section>
+
+                <div class="duel-buttons">
+                    <button id="playerOneButton" class="duel-btn player-one" type="button" data-player="1" disabled>
+                        P1
+                    </button>
+
+                    <button id="playerTwoButton" class="duel-btn player-two" type="button" data-player="2" disabled>
+                        P2
+                    </button>
+                </div>
+
+                <div class="game-actions">
+                    <button id="startDuel" class="primary-btn" type="button">START</button>
+                    <button id="resetDuel" class="ghost-btn" type="button">RESET</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/reaction-duel.js"></script>
+</body>
+</html>

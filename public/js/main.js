@@ -1,11 +1,16 @@
 const gameGrid = document.querySelector('#gameGrid');
 const filterButtons = document.querySelectorAll('.filter-btn');
 
+const guideModal = document.querySelector('#guideModal');
+const guideModalTitle = document.querySelector('#guideModalTitle');
+const guideModalList = document.querySelector('#guideModalList');
+const guideCloseButtons = document.querySelectorAll('[data-close-guide]');
+
 let currentMode = 'single';
 
 function createGameCard(game) {
     return `
-        <a class="game-card" href="${game.href}">
+        <article class="game-card">
             <span class="game-number">${game.number}</span>
 
             <div class="card-top-meta">
@@ -17,10 +22,13 @@ function createGameCard(game) {
             <p>${game.description}</p>
 
             <div class="card-bottom">
-                <span>${game.type}</span>
-                <strong>PLAY</strong>
+                <button class="guide-open-btn" type="button" data-guide-title="${game.title}">
+                    게임 방법
+                </button>
+
+                <a class="play-link" href="${game.href}">PLAY</a>
             </div>
-        </a>
+        </article>
     `;
 }
 
@@ -42,6 +50,8 @@ function renderGames(mode) {
     gameGrid.innerHTML = filteredGames
         .map((game) => createGameCard(game))
         .join('');
+
+    bindGuideButtons();
 }
 
 function changeMode(mode) {
@@ -55,10 +65,67 @@ function changeMode(mode) {
     renderGames(currentMode);
 }
 
+function getGameByTitle(title) {
+    return MGH_GAMES.find((game) => game.title === title);
+}
+
+function openGuideModal(game) {
+    if (!guideModal || !guideModalTitle || !guideModalList) return;
+    if (!game) return;
+
+    guideModalTitle.textContent = game.title;
+    guideModalList.innerHTML = '';
+
+    const guideItems = Array.isArray(game.guide) ? game.guide : [];
+
+    guideItems.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        guideModalList.appendChild(li);
+    });
+
+    guideModal.classList.add('is-open');
+    guideModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('guide-open');
+}
+
+function closeGuideModal() {
+    if (!guideModal) return;
+
+    guideModal.classList.remove('is-open');
+    guideModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('guide-open');
+}
+
+function bindGuideButtons() {
+    const guideButtons = document.querySelectorAll('.guide-open-btn');
+
+    guideButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const gameTitle = button.dataset.guideTitle;
+            const game = getGameByTitle(gameTitle);
+
+            openGuideModal(game);
+        });
+    });
+}
+
 filterButtons.forEach((button) => {
     button.addEventListener('click', () => {
         changeMode(button.dataset.mode);
     });
+});
+
+guideCloseButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        closeGuideModal();
+    });
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeGuideModal();
+    }
 });
 
 renderGames(currentMode);

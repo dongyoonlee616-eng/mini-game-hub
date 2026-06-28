@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목표 숫자 만들기 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/target-number.css">
+</head>
+<body>
+    <div class="site-shell game-page">
+        <header class="game-header">
+            <a class="back-link" href="../index.html">← 메뉴</a>
+            <div>
+                <p class="eyebrow">MGH SINGLE GAME 09</p>
+                <h1>목표 숫자 만들기</h1>
+            </div>
+        </header>
+
+        <main>
+            <section class="game-panel">
+                <div class="score-board three-cols">
+                    <div>
+                        <span>남은 시간</span>
+                        <strong id="timeText">60</strong>
+                    </div>
+                    <div>
+                        <span>점수</span>
+                        <strong id="scoreText">0</strong>
+                    </div>
+                    <div>
+                        <span>최고 점수</span>
+                        <strong id="bestScoreText">0</strong>
+                    </div>
+                </div>
+
+                <section class="target-box">
+                    <span>목표 숫자</span>
+                    <strong id="targetText">?</strong>
+                    <p id="messageText">START를 누르면 숫자 카드가 나옵니다.</p>
+                </section>
+
+                <section class="expression-box">
+                    <span>내가 만든 식</span>
+                    <strong id="expressionText">-</strong>
+                    <small id="resultText">결과: -</small>
+                </section>
+
+                <div id="numberCardBoard" class="number-card-board" aria-label="숫자 카드"></div>
+
+                <div class="operator-board" aria-label="연산자 선택">
+                    <button class="operator-btn" type="button" data-op="+">+</button>
+                    <button class="operator-btn" type="button" data-op="-">-</button>
+                    <button class="operator-btn" type="button" data-op="×">×</button>
+                </div>
+
+                <div class="target-actions">
+                    <button id="clearExpression" class="ghost-btn" type="button" disabled>초기화</button>
+                    <button id="undoExpression" class="ghost-btn" type="button" disabled>되돌리기</button>
+                    <button id="submitExpression" class="primary-btn" type="button" disabled>제출</button>
+                </div>
+
+                <div class="game-actions">
+                    <button id="startTargetGame" class="primary-btn" type="button">START</button>
+                    <button id="resetTargetGame" class="ghost-btn" type="button">기록 초기화</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/target-number.js"></script>
+</body>
+</html>

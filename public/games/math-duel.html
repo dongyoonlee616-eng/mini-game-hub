@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산 대결 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/math-duel.css">
+</head>
+<body>
+    <div class="math-duel-page">
+        <a class="duel-exit" href="../index.html">← 메뉴</a>
+
+        <section id="playerOneArea" class="player-area player-one-area">
+            <div class="player-panel">
+                <span>PLAYER 1</span>
+                <strong id="playerOneAnswer">0</strong>
+                <small id="playerOneState">대기</small>
+            </div>
+
+            <div id="playerOneKeypad" class="duel-keypad" aria-label="PLAYER 1 키패드"></div>
+        </section>
+
+        <section class="center-panel">
+            <div class="question-view top-question">
+                <span>문제</span>
+                <strong id="topQuestionText">READY?</strong>
+            </div>
+
+            <div class="score-line">
+                <div>
+                    <span>P1</span>
+                    <strong id="playerOneScore">0</strong>
+                </div>
+
+                <div>
+                    <span>ROUND</span>
+                    <strong id="roundText">0</strong>
+                </div>
+
+                <div>
+                    <span>P2</span>
+                    <strong id="playerTwoScore">0</strong>
+                </div>
+            </div>
+
+            <div class="duel-message">
+                <strong id="messageTitle">계산 대결</strong>
+                <p id="messageText">START를 누르면 같은 문제를 동시에 풉니다.</p>
+            </div>
+
+            <div class="center-actions">
+                <button id="startMathDuel" type="button">START</button>
+                <button id="resetMathDuel" type="button">RESET</button>
+            </div>
+
+            <div class="question-view bottom-question">
+                <span>문제</span>
+                <strong id="bottomQuestionText">READY?</strong>
+            </div>
+        </section>
+
+        <section id="playerTwoArea" class="player-area player-two-area">
+            <div class="player-panel">
+                <span>PLAYER 2</span>
+                <strong id="playerTwoAnswer">0</strong>
+                <small id="playerTwoState">대기</small>
+            </div>
+
+            <div id="playerTwoKeypad" class="duel-keypad" aria-label="PLAYER 2 키패드"></div>
+        </section>
+    </div>
+
+    <script src="../js/math-duel.js"></script>
+</body>
+</html>

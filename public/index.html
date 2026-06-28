@@ -40,6 +40,21 @@
 
             <section id="gameGrid" class="game-grid" aria-label="미니게임 목록"></section>
 
+            <div id="guideModal" class="guide-modal" aria-hidden="true">
+                <div class="guide-modal-backdrop" data-close-guide></div>
+
+                <section class="guide-modal-panel" role="dialog" aria-modal="true" aria-labelledby="guideModalTitle">
+                    <button class="guide-modal-close" type="button" data-close-guide>×</button>
+
+                    <p class="section-kicker">GAME GUIDE</p>
+                    <h2 id="guideModalTitle">게임 방법</h2>
+
+                    <ol id="guideModalList" class="guide-modal-list"></ol>
+
+                    <button class="primary-btn guide-confirm-btn" type="button" data-close-guide>확인</button>
+                </section>
+            </div>
+
         </main>
 
         <footer class="site-footer">

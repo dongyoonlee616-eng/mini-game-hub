@@ -1,0 +1,139 @@
+.math-question-box {
+    margin: 20px 0;
+    padding: 26px 18px;
+    border: 3px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.math-question-box span {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+.math-question-box strong {
+    display: block;
+    min-height: 68px;
+    font-size: clamp(2.5rem, 14vw, 4.4rem);
+    font-weight: 950;
+    line-height: 1.1;
+    letter-spacing: -0.07em;
+}
+
+.math-question-box p {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-weight: 700;
+    line-height: 1.5;
+    word-break: keep-all;
+}
+
+.math-question-box.correct {
+    background: #e9fff0;
+}
+
+.math-question-box.wrong {
+    background: #fff1f1;
+}
+
+.answer-box {
+    margin: 16px 0;
+    padding: 16px;
+    border: 2px solid var(--soft-line);
+    border-radius: var(--radius-md);
+    background: var(--surface-strong);
+    text-align: center;
+}
+
+.answer-box span {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.answer-box strong {
+    display: block;
+    min-height: 38px;
+    font-size: 2rem;
+    font-weight: 950;
+    letter-spacing: -0.05em;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 18px 0;
+}
+
+.keypad-btn {
+    min-height: 58px;
+    border: 3px solid var(--line);
+    border-radius: 18px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1.55rem;
+    font-weight: 950;
+    box-shadow: 0 6px 0 #111111;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.keypad-btn:active {
+    transform: translateY(5px) scale(0.97);
+    box-shadow: 0 1px 0 #111111;
+}
+
+.keypad-btn.danger {
+    background: var(--surface-strong);
+    font-size: 1.25rem;
+}
+
+.keypad-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+    transform: none;
+}
+
+.full-btn {
+    width: 100%;
+}
+
+.primary-btn:disabled,
+.ghost-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+    transform: none;
+}
+
+@media (max-width: 360px) {
+    .keypad {
+        gap: 8px;
+    }
+
+    .keypad-btn {
+        min-height: 52px;
+        border-radius: 16px;
+    }
+
+    .math-question-box {
+        padding: 22px 14px;
+    }
+}
+
+.math-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.math-actions .primary-btn,
+.math-actions .ghost-btn {
+    width: 100%;
+}

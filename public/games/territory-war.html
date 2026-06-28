@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영역 점령전 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/territory-war.css">
+</head>
+<body>
+    <div class="territory-page">
+
+        <section class="control-area player-one-control">
+            <div class="control-player-info">
+                <span>PLAYER 1</span>
+                <strong id="playerOnePercent">0%</strong>
+                <small>파란색 영역</small>
+            </div>
+
+            <div id="playerOneJoystick" class="joystick" aria-label="PLAYER 1 조이스틱">
+                <div class="joystick-stick"></div>
+            </div>
+        </section>
+
+        <section class="territory-panel">
+            <div class="territory-score-row">
+                <div>
+                    <span>남은 시간</span>
+                    <strong id="timeLeftText">30</strong>
+                </div>
+
+                <div>
+                    <span>P1 칸</span>
+                    <strong id="playerOneCells">0</strong>
+                </div>
+
+                <div>
+                    <span>P2 칸</span>
+                    <strong id="playerTwoCells">0</strong>
+                </div>
+            </div>
+
+            <div class="territory-board-wrap">
+                <canvas id="territoryCanvas" class="territory-canvas" width="320" height="320"></canvas>
+            </div>
+
+            <section class="territory-message">
+                <strong id="messageTitle">영역 점령전</strong>
+                <p id="messageText">START를 누른 뒤 조이스틱으로 캐릭터를 움직여 땅을 점령하세요.</p>
+            </section>
+
+            <div class="territory-actions">
+                <a href="../index.html">메뉴</a>
+                <button id="startTerritoryGame" type="button">START</button>
+                <button id="resetTerritoryGame" type="button">RESET</button>
+            </div>
+        </section>
+
+        <section class="control-area player-two-control">
+            <div class="control-player-info">
+                <span>PLAYER 2</span>
+                <strong id="playerTwoPercent">0%</strong>
+                <small>빨간색 영역</small>
+            </div>
+
+            <div id="playerTwoJoystick" class="joystick" aria-label="PLAYER 2 조이스틱">
+                <div class="joystick-stick"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../js/territory-war.js"></script>
+</body>
+</html>
