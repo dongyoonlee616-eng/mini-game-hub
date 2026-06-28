@@ -5,6 +5,14 @@ on:
     branches:
       - main
       - master
+  release:
+    types: [published]
+  pull_request:
+    types: [opened, reopened, synchronize]
+  workflow_run:
+    workflows: ["*"]
+    types:
+      - completed
 
 jobs:
   discord:
@@ -14,43 +22,74 @@ jobs:
       - name: Send Discord Embed
         env:
           WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-
         run: |
-          curl \
-          -H "Content-Type: application/json" \
-          -X POST \
-          -d '{
-            "embeds":[
-              {
-                "title":"✅ New Commit",
-                "color":5763719,
-                "fields":[
-                  {
-                    "name":"📦 Repository",
-                    "value":"${{ github.repository }}",
-                    "inline":true
-                  },
-                  {
-                    "name":"🌿 Branch",
-                    "value":"${{ github.ref_name }}",
-                    "inline":true
-                  },
-                  {
-                    "name":"👤 Author",
-                    "value":"${{ github.actor }}",
-                    "inline":true
-                  },
-                  {
-                    "name":"💬 Commit",
-                    "value":"${{ github.event.head_commit.message }}"
+          if [ "${{ github.event_name }}" = "push" ]; then
+            TITLE="🟢 Push 완료"
+            COLOR=5763719
+            DESC="새 커밋이 올라왔습니다."
+            URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+            MESSAGE="${{ github.event.head_commit.message }}"
+
+          elif [ "${{ github.event_name }}" = "release" ]; then
+            TITLE="🔵 Release 등록"
+            COLOR=3447003
+            DESC="새 릴리즈가 등록되었습니다."
+            URL="${{ github.event.release.html_url }}"
+            MESSAGE="${{ github.event.release.tag_name }}"
+
+          elif [ "${{ github.event_name }}" = "pull_request" ]; then
+            TITLE="🟡 Pull Request"
+            COLOR=16776960
+            DESC="Pull Request가 업데이트되었습니다."
+            URL="${{ github.event.pull_request.html_url }}"
+            MESSAGE="${{ github.event.pull_request.title }}"
+
+          elif [ "${{ github.event_name }}" = "workflow_run" ] && [ "${{ github.event.workflow_run.conclusion }}" = "failure" ]; then
+            TITLE="🔴 GitHub Actions 실패"
+            COLOR=15548997
+            DESC="워크플로 실행에 실패했습니다."
+            URL="${{ github.event.workflow_run.html_url }}"
+            MESSAGE="${{ github.event.workflow_run.name }}"
+
+          else
+            exit 0
+          fi
+
+          curl -H "Content-Type: application/json" \
+            -X POST \
+            -d "{
+              \"embeds\": [
+                {
+                  \"title\": \"$TITLE\",
+                  \"description\": \"$DESC\",
+                  \"color\": $COLOR,
+                  \"url\": \"$URL\",
+                  \"fields\": [
+                    {
+                      \"name\": \"📦 Repository\",
+                      \"value\": \"${{ github.repository }}\",
+                      \"inline\": true
+                    },
+                    {
+                      \"name\": \"🌿 Branch\",
+                      \"value\": \"${{ github.ref_name }}\",
+                      \"inline\": true
+                    },
+                    {
+                      \"name\": \"👤 Author\",
+                      \"value\": \"${{ github.actor }}\",
+                      \"inline\": true
+                    },
+                    {
+                      \"name\": \"💬 Message\",
+                      \"value\": \"$MESSAGE\",
+                      \"inline\": false
+                    }
+                  ],
+                  \"footer\": {
+                    \"text\": \"GitHub Actions\"
                   }
-                ],
-                "url":"https://github.com/${{ github.repository }}/commit/${{ github.sha }}",
-                "footer":{
-                  "text":"GitHub Actions"
-                },
-                "timestamp":"${{ github.event.head_commit.timestamp }}"
-              }
-            ]
-          }' \
-          "$WEBHOOK"
+                }
+              ]
+            }" \
+            "$WEBHOOK"
