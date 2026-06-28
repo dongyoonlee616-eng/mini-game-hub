@@ -61,7 +61,8 @@ mini-game-hub/
 ├─ LICENSE
 ├─ .github/
 │  └─ workflows/
-│     └─ pages.yml
+│     ├─ pages.yml
+|     └─ discord.yml
 └─ public/
    ├─ index.html
    ├─ games/
