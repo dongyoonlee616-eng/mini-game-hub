@@ -55,6 +55,8 @@ jobs:
             exit 0
           fi
 
+          TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
           curl -H "Content-Type: application/json" \
             -X POST \
             -d "{
@@ -88,7 +90,8 @@ jobs:
                   ],
                   \"footer\": {
                     \"text\": \"GitHub Actions\"
-                  }
+                  }, 
+                  \"timestamp\": \"$TIME\"
                 }
               ]
             }" \
