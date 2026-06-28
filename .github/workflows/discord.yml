@@ -1,24 +1,56 @@
-name: Discord Notify
+name: Discord Notification
 
 on:
   push:
     branches:
       - main
+      - master
 
 jobs:
-  notify:
+  discord:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: tsickert/discord-webhook@v7.0.0
-        with:
-          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-          content: |
-            🚀 **새 커밋이 올라왔습니다!**
+      - name: Send Discord Embed
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
 
-            📦 Repository: ${{ github.repository }}
-            🌿 Branch: ${{ github.ref_name }}
-            👤 Author: ${{ github.actor }}
-            💬 Commit: ${{ github.event.head_commit.message }}
-
-            🔗 https://github.com/${{ github.repository }}/commit/${{ github.sha }}
+        run: |
+          curl \
+          -H "Content-Type: application/json" \
+          -X POST \
+          -d '{
+            "embeds":[
+              {
+                "title":"✅ New Commit",
+                "color":5763719,
+                "fields":[
+                  {
+                    "name":"📦 Repository",
+                    "value":"${{ github.repository }}",
+                    "inline":true
+                  },
+                  {
+                    "name":"🌿 Branch",
+                    "value":"${{ github.ref_name }}",
+                    "inline":true
+                  },
+                  {
+                    "name":"👤 Author",
+                    "value":"${{ github.actor }}",
+                    "inline":true
+                  },
+                  {
+                    "name":"💬 Commit",
+                    "value":"${{ github.event.head_commit.message }}"
+                  }
+                ],
+                "url":"https://github.com/${{ github.repository }}/commit/${{ github.sha }}",
+                "footer":{
+                  "text":"GitHub Actions"
+                },
+                "timestamp":"${{ github.event.head_commit.timestamp }}"
+              }
+            ]
+          }' \
+          "$WEBHOOK"
