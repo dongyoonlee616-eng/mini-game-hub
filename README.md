@@ -155,7 +155,7 @@ MAJOR.MINOR.PATCH
 
 This project is licensed under the MIT License.
 
-누구나 자유롭게 사용, 수정, 배포할 수 있습니다.  
+누구나 자유롭게 사용, 배포할 수 있습니다.  
 자세한 내용은 `LICENSE` 파일을 참고하세요.
 
 ## 패치노트
