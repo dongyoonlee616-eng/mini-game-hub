@@ -667,3 +667,21 @@ window.addEventListener('resize', () => {
 createEmptyBoard();
 resizeCanvas();
 resetGame();
+
+document.addEventListener('gesturestart', (event) => {
+    event.preventDefault();
+});
+
+document.addEventListener('gesturechange', (event) => {
+    event.preventDefault();
+});
+
+document.addEventListener('gestureend', (event) => {
+    event.preventDefault();
+});
+
+document.addEventListener('touchmove', (event) => {
+    if (gameState === 'playing') {
+        event.preventDefault();
+    }
+}, { passive: false });

@@ -5,6 +5,11 @@ body {
     margin: 0;
     overflow: hidden;
     background: #ffd074;
+    touch-action: none;
+    overscroll-behavior: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 body {
@@ -217,6 +222,16 @@ body {
     opacity: 0.45;
     cursor: default;
     transform: none;
+}
+
+.territory-page,
+.control-area,
+.joystick,
+.territory-canvas {
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 @media (max-height: 740px) {

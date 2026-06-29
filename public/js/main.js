@@ -22,11 +22,11 @@ function createGameCard(game) {
             <p>${game.description}</p>
 
             <div class="card-bottom">
+                <a class="play-link" href="${game.href}">PLAY</a>
+
                 <button class="guide-open-btn" type="button" data-guide-title="${game.title}">
                     게임 방법
                 </button>
-
-                <a class="play-link" href="${game.href}">PLAY</a>
             </div>
         </article>
     `;

@@ -1,3 +1,19 @@
+html,
+body {
+    touch-action: manipulation;
+    overscroll-behavior: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.tap-zone {
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
 .timer-line {
     display: flex;
     align-items: center;
