@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>다트 대결 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dart-duel.css">
+</head>
+<body>
+    <div id="dartPage" class="dart-page">
+        <section class="dart-shell">
+            <div class="dart-top">
+                <div class="score-card">
+                    <span>P1 점수</span>
+                    <strong id="playerOneScore">0</strong>
+                </div>
+
+                <div class="score-card center-card">
+                    <span id="phaseLabel">READY</span>
+                    <strong id="turnText">P1</strong>
+                </div>
+
+                <div class="score-card">
+                    <span>P2 점수</span>
+                    <strong id="playerTwoScore">0</strong>
+                </div>
+            </div>
+
+            <section class="message-box">
+                <strong id="messageTitle">다트 대결</strong>
+                <p id="messageText">START를 누르면 PLAYER 1부터 조준을 시작합니다.</p>
+            </section>
+
+            <section class="turn-info-box">
+                <div>
+                    <span>라운드</span>
+                    <strong id="roundText">1 / 5</strong>
+                </div>
+                <div>
+                    <span>현재 단계</span>
+                    <strong id="stepText">대기</strong>
+                </div>
+                <div>
+                    <span>마지막 점수</span>
+                    <strong id="lastScoreText">-</strong>
+                </div>
+            </section>
+
+            <section class="dart-play-area">
+                <div class="vertical-control">
+                    <span>세로</span>
+                    <div class="aim-bar vertical" id="verticalBar">
+                        <div id="yIndicator" class="aim-indicator horizontal-line"></div>
+                    </div>
+                </div>
+
+                <div class="board-area">
+                    <canvas id="dartCanvas" class="dart-canvas" width="320" height="320"></canvas>
+                </div>
+            </section>
+
+            <div class="horizontal-control">
+                <span>가로</span>
+                <div class="aim-bar horizontal" id="horizontalBar">
+                    <div id="xIndicator" class="aim-indicator vertical-line"></div>
+                </div>
+            </div>
+
+            <div class="dart-actions">
+                <a href="../index.html">메뉴</a>
+                <button id="mainAction" type="button">START</button>
+                <button id="resetDartGame" type="button">RESET</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="../js/dart-duel.js"></script>
+</body>
+</html>

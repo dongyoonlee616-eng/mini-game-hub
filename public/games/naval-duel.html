@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>실시간 해전 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/naval-duel.css">
+</head>
+<body>
+    <div id="navalPage" class="naval-page">
+        <section class="naval-main">
+            <div class="naval-top">
+                <div>
+                    <span>P1 점수</span>
+                    <strong id="playerOneScore">0</strong>
+                </div>
+
+                <div>
+                    <span id="phaseLabel">배치</span>
+                    <strong id="currentPlayerText">P1</strong>
+                </div>
+
+                <div>
+                    <span>P2 점수</span>
+                    <strong id="playerTwoScore">0</strong>
+                </div>
+            </div>
+
+            <section class="message-box">
+                <strong id="messageTitle">실시간 해전</strong>
+                <p id="messageText">PLAYER 1부터 자신의 함선을 배치하세요.</p>
+            </section>
+
+            <div class="ship-status">
+                <span>현재 함선</span>
+                <strong id="currentShipText">5칸 함선</strong>
+                <small id="orientationText">가로 배치</small>
+            </div>
+
+            <div id="navalBoard" class="naval-board" aria-label="해전판"></div>
+
+            <div class="center-actions">
+                <a href="../index.html">메뉴</a>
+                <button id="rotateShip" type="button">회전</button>
+                <button id="mainAction" type="button">준비 완료</button>
+                <button id="resetNavalDuel" type="button">RESET</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="../js/naval-duel.js"></script>
+</body>
+</html>

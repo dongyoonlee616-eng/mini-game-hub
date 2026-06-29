@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>같은 그림 찾기 대결 | MGH</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/same-icon-duel.css">
+</head>
+<body>
+    <div class="icon-duel-page">
+        <section id="playerOneArea" class="player-area player-one-area">
+            <div class="player-info">
+                <span>PLAYER 1</span>
+                <strong id="playerOneScore">0</strong>
+                <small id="playerOneState">대기</small>
+            </div>
+
+            <div id="playerOneBoard" class="circle-board" aria-label="PLAYER 1 원판"></div>
+        </section>
+
+        <section class="center-panel">
+            <div class="score-row">
+                <div>
+                    <span>P1</span>
+                    <strong id="centerPlayerOneScore">0</strong>
+                </div>
+
+                <div>
+                    <span>ROUND</span>
+                    <strong id="roundText">0</strong>
+                </div>
+
+                <div>
+                    <span>P2</span>
+                    <strong id="centerPlayerTwoScore">0</strong>
+                </div>
+            </div>
+
+            <section class="message-box">
+                <strong id="messageTitle">같은 그림 찾기 대결</strong>
+                <p id="messageText">START를 누르면 양쪽 원판에서 같은 그림을 찾아 누르세요.</p>
+            </section>
+
+            <div class="center-actions">
+                <a href="../index.html">메뉴</a>
+                <button id="startIconDuel" type="button">START</button>
+                <button id="resetIconDuel" type="button">RESET</button>
+            </div>
+        </section>
+
+        <section id="playerTwoArea" class="player-area player-two-area">
+            <div class="player-info">
+                <span>PLAYER 2</span>
+                <strong id="playerTwoScore">0</strong>
+                <small id="playerTwoState">대기</small>
+            </div>
+
+            <div id="playerTwoBoard" class="circle-board" aria-label="PLAYER 2 원판"></div>
+        </section>
+    </div>
+
+    <script src="../js/same-icon-duel.js"></script>
+</body>
+</html>
