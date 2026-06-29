@@ -14,8 +14,8 @@ const ROUND_DELAY = 2;
 
 const SPEED_OPTIONS = {
     slow: {
-        x: 3,
-        y: 4
+        x: 4,
+        y: 5.7
     },
     fast: {
         x: 5,
