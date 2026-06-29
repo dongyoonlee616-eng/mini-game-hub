@@ -18,8 +18,8 @@ const SPEED_OPTIONS = {
         y: 4
     },
     fast: {
-        x: 3.7,
-        y: 5
+        x: 5,
+        y: 7
     }
 };
 
